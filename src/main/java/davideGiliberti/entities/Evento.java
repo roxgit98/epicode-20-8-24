@@ -2,6 +2,8 @@ package davideGiliberti.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "evento")
 public class Evento {
@@ -11,7 +13,7 @@ public class Evento {
     @Column(name = "titolo")
     private String titolo;
     @Column(name = "data_evento")
-    private String dataEvento;
+    private LocalDate dataEvento;
     @Column(name = "descrizione")
     private String descrizione;
     @Column(name = "tipo_evento")
@@ -19,6 +21,12 @@ public class Evento {
     private TipoEvento tipoEvento;
 
     public Evento() {
+    }
+
+    public Evento(String titolo, LocalDate dataEvento, String descrizione) {
+        this.titolo = titolo;
+        this.dataEvento = dataEvento;
+        this.descrizione = descrizione;
     }
 
     public long getId() {
@@ -34,11 +42,11 @@ public class Evento {
         this.titolo = titolo;
     }
 
-    public String getDataEvento() {
+    public LocalDate getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(String dataEvento) {
+    public void setDataEvento(LocalDate dataEvento) {
         this.dataEvento = dataEvento;
     }
 
